@@ -141,11 +141,39 @@ module grass(width,depth){
 module road(lenght,width){
     for(i=[lenght/(-2):500:lenght/2]){
         for(j=[width/(-2):500:width/2]){
-            translate([i,j,1])
+            translate([i,j,1]){
             //Установка цветов в шахматном порядке
-            color((i+j)%200==0?"grey":"orange")
+            color((i+j)%200==0?"blue":"orange")
             cube([500,500,1],center=true);
+            }
         }
+    }
+}
+//Фонарь
+module light(){
+    //Столб
+    color("grey")
+    cylinder(5000,30,30);
+    //Наклонная часть столба
+    color("grey")
+    rotate([90,0,0])
+    translate([-400,5000,0])
+    rotate_extrude(angle=45)
+    translate([400,0])
+    circle(15);
+    color("yellow")
+    translate([-200,0,5270])
+    rotate([0,20,0])
+    scale([0.5,0.5,0.5])
+    //Лампа
+    difference(){
+        scale([3,1,1])
+        sphere(100);
+        scale([3,1,1])
+        translate([0,0,-5])
+        sphere(100);
+        translate([250,0,0])
+        cube(200,center=true);
     }
 }
 //Размещение объектов
@@ -170,3 +198,6 @@ brunch();
 translate([-2300,-3000,0])
 rotate([0,0,45])
 brunch();
+
+translate([5000,-1000,0])
+light();
