@@ -149,33 +149,6 @@ module road(lenght,width){
         }
     }
 }
-//Фонарь
-module light(){
-    //Столб
-    color("grey")
-    cylinder(5000,30,30);
-    //Наклонная часть столба
-    color("grey")
-    rotate([90,0,0])
-    translate([-400,5000,0])
-    rotate_extrude(angle=45)
-    translate([400,0])
-    circle(15);
-    color("yellow")
-    translate([-200,0,5270])
-    rotate([0,20,0])
-    scale([0.5,0.5,0.5])
-    //Лампа
-    difference(){
-        scale([3,1,1])
-        sphere(100);
-        scale([3,1,1])
-        translate([0,0,-5])
-        sphere(100);
-        translate([250,0,0])
-        cube(200,center=true);
-    }
-}
 //Размещение объектов
 translate([6000,5000,2])
 rotate([0,0,-65])
@@ -198,6 +171,3 @@ brunch();
 translate([-2300,-3000,0])
 rotate([0,0,45])
 brunch();
-
-translate([5000,-1000,0])
-light();
