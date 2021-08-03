@@ -12,14 +12,14 @@ module firecamp(){
                 }
             }
         }
-    translate([0,0,-2500])
-    cube(5000,center=true);
+        translate([0,0,-2500])
+        cube(5000,center=true);
     }
     raft(3000);
     fire();
 }
 module log(){
-        color("brown")
+    color("brown")
     cylinder(2900,30,30,$fn=30);
 }
 
@@ -58,7 +58,7 @@ module brick(){
 }
 module fire(){
     
-        }
+}
 module rocket(){
     cylinder(5000,30,30);
     
@@ -108,10 +108,10 @@ module brunch(){
     color("orange")
     union(){
         translate([100,0,0])
-    cube([90,3100,100], center=true);
+        cube([90,3100,100], center=true);
         translate([-100,0,0])
-    cube([90,3100,100], center=true);
-    cube([90,3100,100], center=true);
+        cube([90,3100,100], center=true);
+        cube([90,3100,100], center=true);
     }
 }
 module prop(){
@@ -136,23 +136,18 @@ module road(lenght,width){
         }
     }
 }
-intersection(){
-    union(){
-        translate([6000,5000,2])
-        rotate([0,0,-65])
-        road(100000,3000);
-        grass(100000,100000);
-        firecamp();
-        translate([5000,-5000,500])
-        rocket();
-        translate([-3500,0,0])
-        brunch();
-        translate([-2300,3000,0])
-        rotate([0,0,-45])
-        brunch();
-        translate([-2300,-3000,0])
-        rotate([0,0,45])
-        brunch();
-    }
-    cube(16000, center=true);
-}
+translate([6000,5000,2])
+rotate([0,0,-65])
+road(100000,3000);
+grass(100000,100000);
+firecamp();
+translate([5000,-5000,500])
+rocket();
+translate([-3500,0,0])
+brunch();
+translate([-2300,3000,0])
+rotate([0,0,-45])
+brunch();
+translate([-2300,-3000,0])
+rotate([0,0,45])
+brunch();
